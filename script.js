@@ -42,7 +42,7 @@ $(document).ready(function() {
         currentCity = $.get( citiesURL + workingLat + "," + workingLng + citiesKey + "&no_annotations=1", function(data) {
             let ctComponents = data.results[0].components
             let workingTown = function(x) {
-                if ( x === "undefined" ) { return "East Bumfuck" }
+                if ( !x ) { return "East Bumfuck" }
                 else { return x };
             } 
             let ctInit = workingTown(ctComponents.village) + ", " + ctComponents.state_code + ", " + ctComponents.country;
