@@ -12,19 +12,19 @@ $(document).ready(function() {
     let currentLng = "NAN"
     let currentCity = ""
 
+    let geoOptions ={
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+
+
     init();
 
     function init() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                while(currentLat === "NAN" || currentLng === "NAN") {
-                    currentLat = position.coords.latitude;
-                    currentLng = position.coords.longitude;
-                }
-                
-                setDashboard(currentLat, currentLng);
-
-            }); } else {alert("Location could not be retrieved.")};
+            navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions) 
+        } else {alert("Location could not be retrieved.")};
 
         startClock();
     };
@@ -42,7 +42,11 @@ $(document).ready(function() {
     function setDashboard(workingLat, workingLng) {
         currentCity = $.get( citiesURL + workingLat + "," + workingLng + citiesKey + "&no_annotations=1", function(data) {
             let ctComponents = data.results[0].components
-            let ctInit = ctComponents.village + ", " + ctComponents.state_code + ", " + ctComponents.country;
+            let workingTown = function(x) {
+                if ( x === "undefined" ) { return "East Bumfuck" }
+                else { return x };
+            } 
+            let ctInit = workingTown(ctComponents.village) + ", " + ctComponents.state_code + ", " + ctComponents.country;
             let ctDisplay = $("#currentCity");
             ctDisplay.text(ctInit);
 
@@ -59,13 +63,11 @@ $(document).ready(function() {
                     wWind.text("Wind Speed: " + workingWeather.current.wind_speed +" MPH");
                     wUV.text("UV Index: " + workingWeather.current.uvi);
 
-                    console.log(workingWeather);
                     let dDate = $(".dayDate");
                     let dTemp = $(".dayTemp");
                     let dHumid = $(".dayHumid");
 
                     for(let i = 0; i <= 4; i++) {
-                        console.log(dDate[i]);
                         $(dDate[i]).text(dt.local().plus({days: (i+1)}).toLocaleString(dt.DATE_MED));
                         $(dTemp[i]).text("Temperature: " + convertKelvin(workingWeather.daily[i+1].temp.day) + "°F");
                         $(dHumid[i]).text("Humidity: " + workingWeather.daily[i+1].humidity +"%");
@@ -78,9 +80,23 @@ $(document).ready(function() {
     function convertKelvin(num){
         let kelv = (((num - 273.15) * 9/5) + 32).toFixed(1);
         return kelv;
-    }
+    };
 
+    function geoSuccess(pos) {
+        while(currentLat === "NAN" || currentLng === "NAN") {
+            currentLat = pos.coords.latitude;
+            currentLng = pos.coords.longitude;
+        }
 
+        console.log(currentLat);
+        console.log(currentLng);
+        
+        setDashboard(currentLat, currentLng);
+    };
+
+    function geoError(err) {
+        console.log(err);
+    };
 
 });
 
