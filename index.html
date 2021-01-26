@@ -17,14 +17,17 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-3">
-          <p>TEST</p>
+        <div class="card col-3">
+          <h4 class="card-header">City Search</h4>
+          <div class="card-body">
+
+          </div>
         </div>
 
         <div class="col-9">
-          <div class="card">
+          <div class="card row">
+            <h4 id="currentCity" class="col-12 card-header">*City Loading*</h4>
             <div class="card-body">
-              <h2 id="currentCity" class="col-12 card-title">*City Loading*</h2>
               <p id="workingTemp" class="card-text">*Temperature Loading*</p>
               <p id="workingHumid" class="card-text">*Humidity Loading*</p>
               <p id="workingWind" class="card-text">*Wind Speed Loading*</p>
@@ -32,17 +35,43 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-1"></div>
-            <div class="col-2">test</div>
-            <div class="col-2">test</div>
-            <div class="col-2">test</div>
-            <div class="col-2">test</div>
-            <div class="col-2">test</div>
-            <div class="col-1"></div>
+          <div class="card row">
+              <h4 class="card-header">5 Day Forecast</h4>
+
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-2">
+                    <h5 id="day1head">*loading*</h5>
+                    <p id="day1temp"></p>
+                    <p id="day1humid"></p>
+                  </div>
+                  <div class="col-2">
+                    <h5 id="day2head">*loading*</h5>
+                    <p id="day2temp"></p>
+                    <p id="day2humid"></p>
+                  </div>
+                  <div class="col-2">
+                    <h5 id="day3head">*loading*</h5>
+                    <p id="day3temp"></p>
+                    <p id="day3humid"></p>
+                  </div>
+                  <div class="col-2">
+                    <h5 id="day4head">*loading*</h5>
+                    <p id="day4temp"></p>
+                    <p id="day4humid"></p>
+                  </div>
+                  <div class="col-2">
+                    <h5 id="day5head">*loading*</h5>
+                    <p id="day5temp"></p>
+                    <p id="day5humid"></p>
+                  </div>
+                  <div class="col-1"></div>
+                </div>
+              </div>
           </div>
         </div>
-      <div>
+      </div>
     </div>
   </body>
 

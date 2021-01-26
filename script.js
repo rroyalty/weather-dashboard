@@ -6,20 +6,13 @@ $(document).ready(function() {
     const weatherURL = "https://api.openweathermap.org/data/2.5/onecall?"     // lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
     const citiesKey = "&key=6fa477f4e23440d282eae33f025aa4c9"
-    const citiesURL = "https://api.opencagedata.com/geocode/v1/json?q="  // q=PLACENAME&key=YOUR-API-KEY
+    const citiesURL = "https://api.opencagedata.com/geocode/v1/json?q="  // PLACENAME&key=YOUR-API-KEY
 
     let currentLat = "NAN"
     let currentLng = "NAN"
     let currentCity = ""
 
     init();
-
-    let weatherData = $.get( citiesURL + "Boston" + citiesKey + "&no_annotations=1", function(workingCity) {
-        $.get( weatherURL + "lat=" + workingCity.results[0].geometry.lat + "&lon="  + workingCity.results[0].geometry.lng + "&appid=" + weatherKey, function(workingWeather) {
-            console.log(workingWeather);
-            return workingWeather;
-        });
-    });
 
     function init() {
         if (navigator.geolocation) {
@@ -47,7 +40,6 @@ $(document).ready(function() {
     };
 
     function setDashboard(workingLat, workingLng) {
-
         currentCity = $.get( citiesURL + workingLat + "," + workingLng + citiesKey + "&no_annotations=1", function(data) {
             let ctComponents = data.results[0].components
             let ctInit = ctComponents.village + ", " + ctComponents.state_code + ", " + ctComponents.country;
@@ -61,14 +53,18 @@ $(document).ready(function() {
                     let wWind= $("#workingWind");
                     let wUV= $("#workingUV");
 
-                    wTemp.text("Temperature: " + workingWeather.current.temp);
-                    wHumid.text("Humidity: " + workingWeather.current.humidity);
-                    wWind.text("Wind Speed: " + workingWeather.current.wind_speed);
+                    wTemp.text("Temperature: " + (((workingWeather.current.temp - 273.15) * 9/5) + 32).toFixed(1) + "°F"
+                    );
+                    wHumid.text("Humidity: " + workingWeather.current.humidity + "%");
+                    wWind.text("Wind Speed: " + workingWeather.current.wind_speed +" MPH");
                     wUV.text("UV Index: " + workingWeather.current.uvi);
+
+                    for(let i = 1; i <= 5; i++){
+
+                    }
                 });
             });
         });
-
     }
 
 });
