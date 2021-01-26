@@ -37,7 +37,7 @@ textarea{
 }
 
 .col {
-  min-width: 200px;
-  max-width: 300px;
+  min-width: 200px !important;
+  max-width: 300px !important;
   
 }
