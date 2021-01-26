@@ -31,3 +31,7 @@ textarea{
 .card-header{
   text-align: center !important;
 }
+
+.card{
+  padding: 2.5px !important;
+}

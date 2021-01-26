@@ -12,12 +12,11 @@ $(document).ready(function() {
     let currentLng = "NAN"
     let currentCity = ""
 
-    let geoOptions ={
+    let geoOptions = {
         enableHighAccuracy: true,
         timeout: 5000,
         maximumAge: 0
     };
-
 
     init();
 
