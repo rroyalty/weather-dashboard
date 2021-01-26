@@ -42,10 +42,21 @@ $(document).ready(function() {
         currentCity = $.get( citiesURL + workingLat + "," + workingLng + citiesKey + "&no_annotations=1", function(data) {
             let ctComponents = data.results[0].components
             let workingTown = function(x) {
-                if ( !x ) { return "East Bumfuck" }
-                else { return x };
+                switch(false) {
+                    case !x.city:
+                        return x.city
+                    break;
+                    case !x.town:
+                        return x.town
+                    break;
+                    case !x.village:
+                        return x.village
+                    break;
+                    default:
+                        return "East Bumfuck"
+                }
             } 
-            let ctInit = workingTown(ctComponents.village) + ", " + ctComponents.state_code + ", " + ctComponents.country;
+            let ctInit = workingTown(ctComponents) + ", " + ctComponents.state_code + ", " + ctComponents.country;
             let ctDisplay = $("#currentCity");
             ctDisplay.text(ctInit);
 
