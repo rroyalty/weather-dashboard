@@ -24,14 +24,20 @@ textarea{
   background-color:(0,0,0,.5);
 }
 
-.blankCol{
+.blankCol {
   width: 5px;
 }
 
-.card-header{
+.card-header {
   text-align: center !important;
 }
 
-.card{
-  padding: 2.5px !important;
+.card {
+  padding: 5px !important;
+}
+
+.col {
+  min-width: 200px;
+  max-width: 300px;
+  
 }

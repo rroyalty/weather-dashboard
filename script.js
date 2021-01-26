@@ -1,33 +1,42 @@
 $(document).ready(function() {
 
+    // Luxon
     const dt=luxon.DateTime;
 
+    // Weather API
     const weatherKey = "dc35c92a93f41b8b8d2a3cb13f096b47"
     const weatherURL = "https://api.openweathermap.org/data/2.5/onecall?"     // lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
+    // Geolocation API
     const citiesKey = "&key=6fa477f4e23440d282eae33f025aa4c9"
     const citiesURL = "https://api.opencagedata.com/geocode/v1/json?q="  // PLACENAME&key=YOUR-API-KEY
 
+    // Define Current latitude, longitude, city.
     let currentLat = "NAN"
     let currentLng = "NAN"
     let currentCity = ""
 
+    // JavaScript geolocation opions.
     let geoOptions = {
         enableHighAccuracy: true,
         timeout: 5000,
         maximumAge: 0
     };
 
+    // Initialize
     init();
 
+    // Initialize Fucntion
     function init() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions) 
         } else {alert("Location could not be retrieved.")};
 
+        // Start Clock
         startClock();
     };
 
+    // Function Start Clock
     function startClock() {
         let dtInit = dt.local().weekdayLong + ", " + dt.local().toLocaleString(dt.DATETIME_MED_WITH_SECONDS);
         let dtDisplay = $("#currentDay");
@@ -38,6 +47,7 @@ $(document).ready(function() {
         }, 1000);
     };
 
+    // Generate Dashboard Weather Reports
     function setDashboard(workingLat, workingLng) {
         currentCity = $.get( citiesURL + workingLat + "," + workingLng + citiesKey + "&no_annotations=1", function(data) {
             let ctComponents = data.results[0].components
