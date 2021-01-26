@@ -1,12 +1,38 @@
 $(document).ready(function() {
 
-    const weatherURL = "https://api.openweathermap.org/data/2.5/onecall?"
-    const weatherKey = "dc35c92a93f41b8b8d2a3cb13f096b47"
-    // lat={lat}&lon={lon}&exclude={part}&appid={API key}
+    const dt=luxon.DateTime;
 
-    const citiesURL = "https://api.opencagedata.com/geocode/v1/json?q="
+    const weatherKey = "dc35c92a93f41b8b8d2a3cb13f096b47"
+    const weatherURL = "https://api.openweathermap.org/data/2.5/onecall?"     // lat={lat}&lon={lon}&exclude={part}&appid={API key}
+
     const citiesKey = "6fa477f4e23440d282eae33f025aa4c9"
-    // q=PLACENAME&key=YOUR-API-KEY
+    const citiesURL = "https://api.opencagedata.com/geocode/v1/json?q="  // q=PLACENAME&key=YOUR-API-KEY
+
+    let currentLat = "NAN"
+    let currentLng = "NAN"
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        while(currentLat === "NAN" || currentLng === "NAN") {
+            currentLat = position.coords.latitude;
+            currentLng = position.coords.longitude;
+        }
+    });
+
+    const currentCity = $.get( citiesURL + "Boston&key=" + citiesKey + "&no_annotations=1", function(data) { 
+
+    });
+
+    startClock();
+
+    function startClock() {
+        let dtInit = dt.local().weekdayLong + ", " + dt.local().toLocaleString(dt.DATETIME_MED_WITH_SECONDS);
+        let dtDisplay = $("#currentDay");
+
+        setInterval (function() {
+            dtDisplay.text(dtInit);
+            dtInit = dt.local().weekdayLong  + ", " + dt.local().plus({seconds: 1}).toLocaleString(dt.DATETIME_MED_WITH_SECONDS);
+        }, 1000);
+    }
  
     let weatherData = $.get( citiesURL + "Boston&key=" + citiesKey + "&no_annotations=1", function(data) {
         $.get( weatherURL + "lat=" + data.results[0].geometry.lat + "&lon="  + data.results[0].geometry.lng + "&appid=" + weatherKey, function(data2) {
