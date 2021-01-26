@@ -12,18 +12,35 @@ $(document).ready(function() {
     let currentLng = "NAN"
     let currentCity = ""
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            while(currentLat === "NAN" || currentLng === "NAN") {
-                currentLat = position.coords.latitude;
-                currentLng = position.coords.longitude;
-            }
-            
-            currentCity = $.get( citiesURL + currentLat + "," + currentLng + citiesKey + "&no_annotations=1", function(data) {console.log(data)});
+    init();
 
-        }); } else {alert("Location could not be retrieved.")};
 
-    startClock();
+ 
+    let weatherData = $.get( citiesURL + "Boston" + citiesKey + "&no_annotations=1", function(data) {
+        $.get( weatherURL + "lat=" + data.results[0].geometry.lat + "&lon="  + data.results[0].geometry.lng + "&appid=" + weatherKey, function(data2) {
+            return data2;
+        });
+    });
+
+    function init() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                while(currentLat === "NAN" || currentLng === "NAN") {
+                    currentLat = position.coords.latitude;
+                    currentLng = position.coords.longitude;
+                }
+                
+                currentCity = $.get( citiesURL + currentLat + "," + currentLng + citiesKey + "&no_annotations=1", function(data) {
+                    let ctComponents = data.results[0].components
+                    let ctInit = ctComponents.village + ", " + ctComponents.state_code + ", " + ctComponents.country;
+                    let ctDisplay = $("#currentCity");
+                    ctDisplay.text(ctInit);
+                });
+
+            }); } else {alert("Location could not be retrieved.")};
+
+        startClock();
+    };
 
     function startClock() {
         let dtInit = dt.local().weekdayLong + ", " + dt.local().toLocaleString(dt.DATETIME_MED_WITH_SECONDS);
@@ -34,12 +51,6 @@ $(document).ready(function() {
             dtInit = dt.local().weekdayLong  + ", " + dt.local().plus({seconds: 1}).toLocaleString(dt.DATETIME_MED_WITH_SECONDS);
         }, 1000);
     };
- 
-    let weatherData = $.get( citiesURL + "Boston" + citiesKey + "&no_annotations=1", function(data) {
-        $.get( weatherURL + "lat=" + data.results[0].geometry.lat + "&lon="  + data.results[0].geometry.lng + "&appid=" + weatherKey, function(data2) {
-            return data2;
-        });
-    });
 
 });
 
