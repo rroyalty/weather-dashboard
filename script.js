@@ -53,19 +53,34 @@ $(document).ready(function() {
                     let wWind= $("#workingWind");
                     let wUV= $("#workingUV");
 
-                    wTemp.text("Temperature: " + (((workingWeather.current.temp - 273.15) * 9/5) + 32).toFixed(1) + "°F"
+                    wTemp.text("Temperature: " + convertKelvin(workingWeather.current.temp) + "°F"
                     );
                     wHumid.text("Humidity: " + workingWeather.current.humidity + "%");
                     wWind.text("Wind Speed: " + workingWeather.current.wind_speed +" MPH");
                     wUV.text("UV Index: " + workingWeather.current.uvi);
 
-                    for(let i = 1; i <= 5; i++){
+                    console.log(workingWeather);
+                    let dDate = $(".dayDate");
+                    let dTemp = $(".dayTemp");
+                    let dHumid = $(".dayHumid");
 
+                    for(let i = 0; i <= 4; i++) {
+                        console.log(dDate[i]);
+                        $(dDate[i]).text(dt.local().plus({days: (i+1)}).toLocaleString(dt.DATE_MED));
+                        $(dTemp[i]).text("Temperature: " + convertKelvin(workingWeather.daily[i+1].temp.day) + "°F");
+                        $(dHumid[i]).text("Humidity: " + workingWeather.daily[i+1].humidity +"%");
                     }
                 });
             });
         });
+    };
+
+    function convertKelvin(num){
+        let kelv = (((num - 273.15) * 9/5) + 32).toFixed(1);
+        return kelv;
     }
+
+
 
 });
 
