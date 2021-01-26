@@ -19,4 +19,15 @@ textarea{
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+  background-image: url(./assets/headerBackground.jpg);
+  background-size: cover;
+  background-color:(0,0,0,.5);
+}
+
+.blankCol{
+  width: 5px;
+}
+
+.card-header{
+  text-align: center !important;
 }
