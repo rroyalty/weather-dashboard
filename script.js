@@ -14,11 +14,10 @@ $(document).ready(function() {
 
     init();
 
-
- 
-    let weatherData = $.get( citiesURL + "Boston" + citiesKey + "&no_annotations=1", function(data) {
-        $.get( weatherURL + "lat=" + data.results[0].geometry.lat + "&lon="  + data.results[0].geometry.lng + "&appid=" + weatherKey, function(data2) {
-            return data2;
+    let weatherData = $.get( citiesURL + "Boston" + citiesKey + "&no_annotations=1", function(workingCity) {
+        $.get( weatherURL + "lat=" + workingCity.results[0].geometry.lat + "&lon="  + workingCity.results[0].geometry.lng + "&appid=" + weatherKey, function(workingWeather) {
+            console.log(workingWeather);
+            return workingWeather;
         });
     });
 
@@ -30,12 +29,7 @@ $(document).ready(function() {
                     currentLng = position.coords.longitude;
                 }
                 
-                currentCity = $.get( citiesURL + currentLat + "," + currentLng + citiesKey + "&no_annotations=1", function(data) {
-                    let ctComponents = data.results[0].components
-                    let ctInit = ctComponents.village + ", " + ctComponents.state_code + ", " + ctComponents.country;
-                    let ctDisplay = $("#currentCity");
-                    ctDisplay.text(ctInit);
-                });
+                setDashboard(currentLat, currentLng);
 
             }); } else {alert("Location could not be retrieved.")};
 
@@ -51,6 +45,31 @@ $(document).ready(function() {
             dtInit = dt.local().weekdayLong  + ", " + dt.local().plus({seconds: 1}).toLocaleString(dt.DATETIME_MED_WITH_SECONDS);
         }, 1000);
     };
+
+    function setDashboard(workingLat, workingLng) {
+
+        currentCity = $.get( citiesURL + workingLat + "," + workingLng + citiesKey + "&no_annotations=1", function(data) {
+            let ctComponents = data.results[0].components
+            let ctInit = ctComponents.village + ", " + ctComponents.state_code + ", " + ctComponents.country;
+            let ctDisplay = $("#currentCity");
+            ctDisplay.text(ctInit);
+
+            $.get( citiesURL + ctInit + citiesKey + "&no_annotations=1", function(workingCity) {
+                $.get( weatherURL + "lat=" + workingCity.results[0].geometry.lat + "&lon="  + workingCity.results[0].geometry.lng + "&appid=" + weatherKey, function(workingWeather) {
+                    let wTemp = $("#workingTemp");
+                    let wHumid = $("#workingHumid");
+                    let wWind= $("#workingWind");
+                    let wUV= $("#workingUV");
+
+                    wTemp.text("Temperature: " + workingWeather.current.temp);
+                    wHumid.text("Humidity: " + workingWeather.current.humidity);
+                    wWind.text("Wind Speed: " + workingWeather.current.wind_speed);
+                    wUV.text("UV Index: " + workingWeather.current.uvi);
+                });
+            });
+        });
+
+    }
 
 });
 
