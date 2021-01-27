@@ -43,27 +43,64 @@ textarea{
 }
 
 .rainImg {
+  background-color: transparent;
   background-image: url(./assets/rain.jpg);
   background-size: cover;
 }
 
-.sunnyImg {
-  background-image: url(./assets/sun.jpg);
-  background-size: cover;
+.sunImg {
+  background-color: transparent !important;
+  background-image: url(./assets/sun.jpg) !important;
+  background-size: cover !important;
 }
 
 .snowImg {
+  background-color: transparent;
   background-image: url(./assets/snowing.jpg);
   background-size: cover;
 }
 
 .cloudImg {
+  background-color: transparent;
   background-image: url(./assets/clouds.jpg);
   background-size: cover;
 }
 
-
 .windImg {
+  background-color: transparent !important;
   background-image: url(./assets/wind.jpg);
   background-size: cover;
+}
+
+.thunderImg {
+  background-color: transparent !important;
+  background-image: url(./assets/thunderstorm.jpeg);
+  background-size: cover;
+}
+
+.fogImg {
+  background-color: transparent !important;
+  background-image: url(./assets/fog.jpg);
+  background-size: cover;
+}
+
+p {
+  white-space: nowrap;
+};
+
+p.card-header {
+  position: fixed;
+  margin: 0px;
+}
+
+#workingImage {
+  position: absolute;
+  margin-top: -12px;
+  margin-left: -5px;
+}
+
+.dayImage {
+  position: absolute;
+  margin-top: -17px;
+  margin-left: -5px;
 }

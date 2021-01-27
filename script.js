@@ -72,17 +72,46 @@ $(document).ready(function() {
 
             $.get( citiesURL + ctInit + citiesKey + "&no_annotations=1", function(workingCity) {
                 $.get( weatherURL + "lat=" + workingCity.results[0].geometry.lat + "&lon="  + workingCity.results[0].geometry.lng + "&exclude=hourly,minutely&appid=" + weatherKey, function(workingWeather) {
+
+                    let wBackground = $("#todayWeatherC");
+                    let wImage = $("#workingImage");
+                    let wOutlook = $("#workingOutlook");
                     let wTemp = $("#workingTemp");
                     let wHumid = $("#workingHumid");
                     let wWind= $("#workingWind");
                     let wUV= $("#workingUV");
 
+                    switch(true) {
+                        case workingWeather.daily[i].weather[0].main == "Rain" || workingWeather.daily[i].weather[0].main == "Drizzle" :
+                            $(dBackground[i]).addClass("rainImg");
+                        break;
+                        case workingWeather.daily[i].weather[0].main == "Snow":
+                            $(dBackground[i]).addClass("snowImg");
+                        break;
+                        case workingWeather.daily[i].weather[0].main == "Clear":
+                            $(dBackground[i]).addClass("sunImg");
+                        break;
+                        case workingWeather.daily[i].weather[0].main == "Thunderstorm":
+                            $(dBackground[i]).addClass("thunderImg");
+                        break;
+                        case workingWeather.daily[i].weather[0].main == "Clouds":
+                            $(dBackground[i]).addClass("cloudImg");
+                        break;
+                        default:
+                            $(dBackground[i]).addClass("fogImg");
+                    }
+
+                    $(wImage).attr("src", "http://openweathermap.org/img/wn/" + workingWeather.current.weather[0].icon + ".png");
+                    $(wImage).attr("alt", workingWeather.current.weather[0].description);
+
+                    $(wOutlook).text("Outlook: " + workingWeather.current.weather[0].description); 
                     wTemp.text("Temperature: " + convertKelvin(workingWeather.current.temp) + "°F"
                     );
                     wHumid.text("Humidity: " + workingWeather.current.humidity + "%");
                     wWind.text("Wind Speed: " + workingWeather.current.wind_speed +" MPH");
                     wUV.text("UV Index: " + workingWeather.current.uvi);
 
+                    let dBackground = $(".weatherC");
                     let dImage = $(".dayImage");
                     let dOutlook = $(".dayOutlook");
                     let dDate = $(".dayDate");
@@ -90,10 +119,34 @@ $(document).ready(function() {
                     let dHumid = $(".dayHumid");
 
                     for(let i = 0; i <= 4; i++) {
-                        $(dOutlook[i]).text(workingWeather.daily[i].weather[0].description + " " + $(dImage[i]).attr("src", "http://openweathermap.org/img/wn/" + workingWeather.daily[i].weather[0].icon + "@2x.png"));
+                        $(dImage[i]).attr("src", "http://openweathermap.org/img/wn/" + workingWeather.daily[i].weather[0].icon + ".png");
+                        $(dImage[i]).attr("alt", workingWeather.daily[i].weather[0].description);
+                        $(dOutlook[i]).text("O: " + workingWeather.daily[i].weather[0].description); 
                         $(dDate[i]).text(dt.local().plus({days: (i+1)}).toLocaleString(dt.DATE_MED));
-                        $(dTemp[i]).text("Temperature: " + convertKelvin(workingWeather.daily[i].temp.day) + "°F");
-                        $(dHumid[i]).text("Humidity: " + workingWeather.daily[i].humidity +"%");
+                        $(dTemp[i]).text("T: " + convertKelvin(workingWeather.daily[i].temp.day) + "°F");
+                        $(dHumid[i]).text("H: " + workingWeather.daily[i].humidity +"%");
+                        
+                        console.log(workingWeather.daily[i].weather[0].main);
+
+                        switch(true) {
+                            case workingWeather.daily[i].weather[0].main == "Rain" || workingWeather.daily[i].weather[0].main == "Drizzle" :
+                                $(dBackground[i]).addClass("rainImg");
+                            break;
+                            case workingWeather.daily[i].weather[0].main == "Snow":
+                                $(dBackground[i]).addClass("snowImg");
+                            break;
+                            case workingWeather.daily[i].weather[0].main == "Clear":
+                                $(dBackground[i]).addClass("sunImg");
+                            break;
+                            case workingWeather.daily[i].weather[0].main == "Thunderstorm":
+                                $(dBackground[i]).addClass("thunderImg");
+                            break;
+                            case workingWeather.daily[i].weather[0].main == "Clouds":
+                                $(dBackground[i]).addClass("cloudImg");
+                            break;
+                            default:
+                                $(dBackground[i]).addClass("fogImg");
+                        }
                     }
 
                     console.log(workingWeather);
@@ -113,9 +166,6 @@ $(document).ready(function() {
             currentLng = pos.coords.longitude;
         }
 
-        console.log(currentLat);
-        console.log(currentLng);
-        
         setDashboard(currentLat, currentLng);
     };
 
