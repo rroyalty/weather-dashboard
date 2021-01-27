@@ -37,8 +37,8 @@ textarea{
   padding: 0px !important;
 }
 
-.col {
-  min-width: 200px !important;
-  max-width: 300px !important;
+.daily {
+  min-width: 190px !important;
+  padding: 0px !important;
   
 }
