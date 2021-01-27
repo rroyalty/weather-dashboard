@@ -21,7 +21,6 @@ textarea{
   border-bottom: 10px solid black;
   background-image: url(./assets/headerBackground.jpg);
   background-size: cover;
-  background-color:(0,0,0,.5);
 }
 
 .blankCol {
@@ -41,4 +40,30 @@ textarea{
   min-width: 190px !important;
   padding: 0px !important;
   
+}
+
+.rainImg {
+  background-image: url(./assets/rain.jpg);
+  background-size: cover;
+}
+
+.sunnyImg {
+  background-image: url(./assets/sun.jpg);
+  background-size: cover;
+}
+
+.snowImg {
+  background-image: url(./assets/snowing.jpg);
+  background-size: cover;
+}
+
+.cloudImg {
+  background-image: url(./assets/clouds.jpg);
+  background-size: cover;
+}
+
+
+.windImg {
+  background-image: url(./assets/wind.jpg);
+  background-size: cover;
 }

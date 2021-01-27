@@ -71,7 +71,7 @@ $(document).ready(function() {
             ctDisplay.text(ctInit);
 
             $.get( citiesURL + ctInit + citiesKey + "&no_annotations=1", function(workingCity) {
-                $.get( weatherURL + "lat=" + workingCity.results[0].geometry.lat + "&lon="  + workingCity.results[0].geometry.lng + "&appid=" + weatherKey, function(workingWeather) {
+                $.get( weatherURL + "lat=" + workingCity.results[0].geometry.lat + "&lon="  + workingCity.results[0].geometry.lng + "&exclude=hourly,minutely&appid=" + weatherKey, function(workingWeather) {
                     let wTemp = $("#workingTemp");
                     let wHumid = $("#workingHumid");
                     let wWind= $("#workingWind");
@@ -83,15 +83,20 @@ $(document).ready(function() {
                     wWind.text("Wind Speed: " + workingWeather.current.wind_speed +" MPH");
                     wUV.text("UV Index: " + workingWeather.current.uvi);
 
+                    let dImage = $(".dayImage");
+                    let dOutlook = $(".dayOutlook");
                     let dDate = $(".dayDate");
                     let dTemp = $(".dayTemp");
                     let dHumid = $(".dayHumid");
 
                     for(let i = 0; i <= 4; i++) {
+                        $(dOutlook[i]).text(workingWeather.daily[i].weather[0].description + " " + $(dImage[i]).attr("src", "http://openweathermap.org/img/wn/" + workingWeather.daily[i].weather[0].icon + "@2x.png"));
                         $(dDate[i]).text(dt.local().plus({days: (i+1)}).toLocaleString(dt.DATE_MED));
-                        $(dTemp[i]).text("Temperature: " + convertKelvin(workingWeather.daily[i+1].temp.day) + "°F");
-                        $(dHumid[i]).text("Humidity: " + workingWeather.daily[i+1].humidity +"%");
+                        $(dTemp[i]).text("Temperature: " + convertKelvin(workingWeather.daily[i].temp.day) + "°F");
+                        $(dHumid[i]).text("Humidity: " + workingWeather.daily[i].humidity +"%");
                     }
+
+                    console.log(workingWeather);
                 });
             });
         });
