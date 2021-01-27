@@ -37,6 +37,14 @@ $(document).ready(function() {
         } else {alert("Location could not be retrieved.")};
 
         // Start Clock
+
+        for ( let i = 0; i < 8; i++) {
+            if (JSON.parse(localStorage.getItem("weatherDash" + i)) !== null) {
+                let retObj = JSON.parse(localStorage.getItem("weatherDash" + i));
+                $(searchHistory[i]).text(retObj.value); 
+            }
+        }
+
         startClock();
     };
 
@@ -69,8 +77,9 @@ $(document).ready(function() {
                     default:
                         return "East Bumfuck"
                 }
-            } 
+            }
             let ctInit = workingTown(ctComponents) + ", " + ctComponents.state_code + ", " + ctComponents.country;
+            if (!ctComponents.state_code) { ctInit = workingTown(ctComponents) + ", " + ctComponents.country;  }
             let ctDisplay = $("#currentCity");
             ctDisplay.text(ctInit);
 
@@ -194,24 +203,43 @@ $(document).ready(function() {
         console.log(err);
     };
 
-    $(".searchButt").on('click', function(event) {
-        event.preventDefault();
+    $(".searchButt").on('click', function() {
+
         let searchVal = $(searchBar).val();
         if (searchVal === "") return;
+            
+        for(let i = 7; i > 0; i--) {
+            if (JSON.parse(localStorage.getItem("weatherDash" + (i-1)) !== null)) {
+                localStorage.setItem("weatherDash" + i, localStorage.getItem("weatherDash"+(i-1)));
+        }};
 
-        console.log(citiesURL + searchVal + citiesKey);
-        $.get(citiesURL + searchVal + citiesKey, function(workingCity) {
-            let searchLat = workingCity.results[0].geometry.lat;
-            let searchLng = workingCity.results[0].geometry.lng;
-            localStorage.setItem(searchVal, searchLat + ", " + searchLng);
-            $(searchCard).prepend('<p class="searchHistory">' + searchVal + '</p>');
-            $(searchHistory[7]).remove();
-            searchHistory = $(".searchHistory");
+        let storeObj = {"value":searchVal};
+        console.log(storeObj);
+        localStorage.setItem("weatherDash" + 0, JSON.stringify(storeObj));
+        $(searchCard).prepend('<p class="searchHistory">' + searchVal + '</p>');
+        $(searchHistory[7]).remove();
+        searchHistory = $(".searchHistory");
 
-        })
+        searchCitybyName(searchVal);
         
     });
 
+    $(".searchHistory").on('click', function() { 
+        let _this = this;
+        searchCitybyName($(_this).text());
+
+    });
+
+
+    function searchCitybyName(city) {
+        $.get(citiesURL + city + citiesKey, function(workingCity) {
+            let searchLat = workingCity.results[0].geometry.lat;
+            let searchLng = workingCity.results[0].geometry.lng;
+            
+            setDashboard(searchLat, searchLng);
+
+        });
+    };
 
 });
 

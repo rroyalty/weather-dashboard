@@ -109,12 +109,16 @@ p.card-header {
 }
 
 .todayCard {
-  max-width: 472px;
+  max-width: 600px;
 }
 
 div.weatherC p {
   background-color: rgba(255, 255, 255, 0.5);
 
+}
+
+.searchHistory:hover {
+  cursor: pointer;
 }
 
 .searchhistoryC {
