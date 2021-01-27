@@ -2,6 +2,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color:darkcyan;
+
 }
 
 textarea{
@@ -29,6 +31,7 @@ textarea{
 
 .card-header {
   text-align: center !important;
+  background-color:skyblue !important;
 }
 
 .card {
@@ -45,47 +48,47 @@ textarea{
 .rainImg {
   background-color: transparent;
   background-image: url(./assets/rain.jpg);
-  background-size: cover;
 }
 
 .sunImg {
   background-color: transparent !important;
   background-image: url(./assets/sun.jpg) !important;
-  background-size: cover !important;
 }
 
 .snowImg {
   background-color: transparent;
   background-image: url(./assets/snowing.jpg);
-  background-size: cover;
 }
 
 .cloudImg {
   background-color: transparent;
   background-image: url(./assets/clouds.jpg);
-  background-size: cover;
 }
 
 .windImg {
   background-color: transparent !important;
   background-image: url(./assets/wind.jpg);
-  background-size: cover;
 }
 
 .thunderImg {
   background-color: transparent !important;
   background-image: url(./assets/thunderstorm.jpeg);
-  background-size: cover;
 }
 
 .fogImg {
   background-color: transparent !important;
   background-image: url(./assets/fog.jpg);
+}
+
+.fontVisibility {
   background-size: cover;
+  color:black;
+  text-transform: capitalize;
+  text-shadow: 1px dimgray ;
 }
 
 p {
-  white-space: nowrap;
+   white-space: nowrap;
 };
 
 p.card-header {
@@ -103,4 +106,22 @@ p.card-header {
   position: absolute;
   margin-top: -17px;
   margin-left: -5px;
+}
+
+.todayCard {
+  max-width: 472px;
+}
+
+div.weatherC p {
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+#todayWeatherC p {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+div.card {
+  background-color: dimgray;
+  border: black solid 2px;
 }

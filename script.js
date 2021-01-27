@@ -82,23 +82,23 @@ $(document).ready(function() {
                     let wUV= $("#workingUV");
 
                     switch(true) {
-                        case workingWeather.daily[i].weather[0].main == "Rain" || workingWeather.daily[i].weather[0].main == "Drizzle" :
-                            $(dBackground[i]).addClass("rainImg");
+                        case workingWeather.current.weather[0].main == "Rain" || workingWeather.current.weather[0].main == "Drizzle" :
+                            $(wBackground).addClass("rainImg");
                         break;
-                        case workingWeather.daily[i].weather[0].main == "Snow":
-                            $(dBackground[i]).addClass("snowImg");
+                        case workingWeather.current.weather[0].main == "Snow":
+                            $(wBackground).addClass("snowImg");
                         break;
-                        case workingWeather.daily[i].weather[0].main == "Clear":
-                            $(dBackground[i]).addClass("sunImg");
+                        case workingWeather.current.weather[0].main == "Clear":
+                            $(wBackground).addClass("sunImg");
                         break;
-                        case workingWeather.daily[i].weather[0].main == "Thunderstorm":
-                            $(dBackground[i]).addClass("thunderImg");
+                        case workingWeather.current.weather[0].main == "Thunderstorm":
+                            $(wBackground).addClass("thunderImg");
                         break;
-                        case workingWeather.daily[i].weather[0].main == "Clouds":
-                            $(dBackground[i]).addClass("cloudImg");
+                        case workingWeather.current.weather[0].main == "Clouds":
+                            $(wBackground).addClass("cloudImg");
                         break;
                         default:
-                            $(dBackground[i]).addClass("fogImg");
+                            $(wBackground).addClass("fogImg");
                     }
 
                     $(wImage).attr("src", "http://openweathermap.org/img/wn/" + workingWeather.current.weather[0].icon + ".png");
