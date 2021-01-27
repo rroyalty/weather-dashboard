@@ -23,6 +23,8 @@ $(document).ready(function() {
         maximumAge: 0
     };
 
+    let searchHistory = $(".searchHistory")
+
     // Initialize
     init();
 

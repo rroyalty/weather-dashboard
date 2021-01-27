@@ -117,6 +117,24 @@ div.weatherC p {
 
 }
 
+div.searchHistoryC p {
+  background-color: white;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 25px;
+  border: black solid 2px;
+  text-align: center;
+  position: relative;
+}
+
+.SH {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 #todayWeatherC p {
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -124,4 +142,10 @@ div.weatherC p {
 div.card {
   background-color: dimgray;
   border: black solid 2px;
+}
+
+button {
+  max-height: 36px !important;
+  border: black solid 2px !important;
+  margin-left: 0px !important;
 }
