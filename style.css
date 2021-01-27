@@ -117,6 +117,15 @@ div.weatherC p {
 
 }
 
+.searchhistoryC {
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
 div.searchHistoryC p {
   background-color: white;
   margin-top: 2.5px;
@@ -129,12 +138,6 @@ div.searchHistoryC p {
   position: relative;
 }
 
-.SH {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 #todayWeatherC p {
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -144,8 +147,28 @@ div.card {
   border: black solid 2px;
 }
 
-button {
+.searchButt {
   max-height: 36px !important;
   border: black solid 2px !important;
   margin-left: 0px !important;
+}
+
+.uvXTreme {
+  color: violet !important;
+}
+
+.uvVBad {
+  color: red !important;
+}
+
+.uvBad {
+  color: orange !important;
+}
+
+.uvOK {
+  color: yellow !important;
+}
+
+.uvGood {
+  color: green !important;
 }

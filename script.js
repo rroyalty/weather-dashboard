@@ -23,7 +23,9 @@ $(document).ready(function() {
         maximumAge: 0
     };
 
-    let searchHistory = $(".searchHistory")
+    let searchCard = $(".searchHistoryC");
+    let searchHistory = $(".searchHistory");
+    let searchBar = $("#citySearch");
 
     // Initialize
     init();
@@ -103,6 +105,23 @@ $(document).ready(function() {
                             $(wBackground).addClass("fogImg");
                     }
 
+                    switch(true) {
+                        case workingWeather.current.uvi < 3:
+                            $(wUV).addClass("uvGood");
+                        break;
+                        case workingWeather.current.uvi < 6:
+                            $(wUV).addClass("uvOK");
+                        break;
+                        case workingWeather.current.uvi < 8:
+                            $(wUV).addClass("uvBad");
+                        break;
+                        case workingWeather.current.uvi < 11:
+                            $(wUV).addClass("uvVBad");
+                        break;
+                        default:
+                            $(wUV).addClass("uvXTreme");
+                    }
+
                     $(wImage).attr("src", "http://openweathermap.org/img/wn/" + workingWeather.current.weather[0].icon + ".png");
                     $(wImage).attr("alt", workingWeather.current.weather[0].description);
 
@@ -174,6 +193,25 @@ $(document).ready(function() {
     function geoError(err) {
         console.log(err);
     };
+
+    $(".searchButt").on('click', function(event) {
+        event.preventDefault();
+        let searchVal = $(searchBar).val();
+        if (searchVal === "") return;
+
+        console.log(citiesURL + searchVal + citiesKey);
+        $.get(citiesURL + searchVal + citiesKey, function(workingCity) {
+            let searchLat = workingCity.results[0].geometry.lat;
+            let searchLng = workingCity.results[0].geometry.lng;
+            localStorage.setItem(searchVal, searchLat + ", " + searchLng);
+            $(searchCard).prepend('<p class="searchHistory">' + searchVal + '</p>');
+            $(searchHistory[7]).remove();
+            searchHistory = $(".searchHistory");
+
+        })
+        
+    });
+
 
 });
 
