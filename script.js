@@ -11,7 +11,7 @@ $(document).ready(function() {
     const citiesKey = "&key=6fa477f4e23440d282eae33f025aa4c9"
     const citiesURL = "https://api.opencagedata.com/geocode/v1/json?q="  // PLACENAME&key=YOUR-API-KEY
 
-    // Define Current latitude, longitude, city.
+    // Define Current latitude, longitude, city variables for later use. Populated with dud information.
     let currentLat = "NAN"
     let currentLng = "NAN"
     let currentCity = ""
