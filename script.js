@@ -275,5 +275,32 @@ $(document).ready(function() {
         });
     };
 
+    $("#citySearch").bind('keydown', function(event){ 
+        if(event.keyCode == 13){ 
+          event.preventDefault();
+
+          let searchVal = $(searchBar).val();
+          if (searchVal === "") return;
+  
+          // Bumps the stored values up by one iteration.
+          for(let i = 7; i > 0; i--) {
+              if (JSON.parse(localStorage.getItem("weatherDash" + (i-1)) !== null)) {
+                  localStorage.setItem("weatherDash" + i, localStorage.getItem("weatherDash"+(i-1)));
+          }};
+  
+          // Stores the new search in the 0 index.
+          let storeObj = {"value":searchVal};
+          localStorage.setItem("weatherDash" + 0, JSON.stringify(storeObj));
+          $(searchCard).prepend('<p class="searchHistory">' + searchVal + '</p>');
+  
+          // Removes the least recent index if searches > 8. (Removes an HTML element regardless if searches exist or not)
+          $(searchHistory[7]).remove();
+          searchHistory = $(".searchHistory");
+  
+          // Populate weather data based on search.
+          searchCitybyName(searchVal);
+        }
+      });
+
 });
 
