@@ -25,61 +25,68 @@ textarea{
   background-size: cover;
 }
 
-.blankCol {
-  width: 5px;
-}
-
+/* Card Headers, Light Blue */
 .card-header {
   text-align: center !important;
   background-color:skyblue !important;
 }
 
+/* Card Margins and Padding */
 .card {
   margin: 5px !important;
   padding: 0px !important;
 }
 
+/* 5 day forecast min-width */
 .daily {
   min-width: 190px !important;
   padding: 0px !important;
   
 }
 
+/* Background Rain Image */
 .rainImg {
   background-color: transparent;
   background-image: url(./assets/rain.jpg);
 }
 
+/* Background Clear Skies Image */
 .sunImg {
   background-color: transparent !important;
   background-image: url(./assets/sun.jpg) !important;
 }
 
+/* Background Snow Image */
 .snowImg {
   background-color: transparent;
   background-image: url(./assets/snowing.jpg);
 }
 
+/* Background Cloudy Image */
 .cloudImg {
   background-color: transparent;
   background-image: url(./assets/clouds.jpg);
 }
 
+/* Background Windy Image*/
 .windImg {
   background-color: transparent !important;
   background-image: url(./assets/wind.jpg);
 }
 
+/* Background Thunderstorm Image */
 .thunderImg {
   background-color: transparent !important;
   background-image: url(./assets/thunderstorm.jpeg);
 }
 
+/* Background *Other Conditions Image */
 .fogImg {
   background-color: transparent !important;
   background-image: url(./assets/fog.jpg);
 }
 
+/* Font formatting */
 .fontVisibility {
   background-size: cover;
   color:black;
@@ -96,31 +103,37 @@ p.card-header {
   margin: 0px;
 }
 
+/* Positioning for weather icon on the current weather card. */
 #workingImage {
   position: absolute;
   margin-top: -12px;
   margin-left: -5px;
 }
 
+/* Positioning for weather icon on the 5 day forecast cards. */
 .dayImage {
   position: absolute;
   margin-top: -17px;
   margin-left: -5px;
 }
 
+/* Current weather forecast min-width */
 .todayCard {
   max-width: 600px;
 }
 
+/* Background so font can be seen on card. */
 div.weatherC p {
   background-color: rgba(255, 255, 255, 0.5);
 
 }
 
+/* HPoint on hover over previous searches */
 .searchHistory:hover {
   cursor: pointer;
 }
 
+/* Search History Card Formatting */
 .searchhistoryC {
   text-align: center;
   justify-content: center;
@@ -130,6 +143,7 @@ div.weatherC p {
 
 }
 
+/* Search History Text Formatting */
 div.searchHistoryC p {
   background-color: white;
   margin-top: 2.5px;
@@ -142,21 +156,25 @@ div.searchHistoryC p {
   position: relative;
 }
 
+/* Grey 50% transparent background for card text so user can see it on all backgrounds. */
 #todayWeatherC p {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Grey background for City Search, Search History, 5 Day Forecast */
 div.card {
   background-color: dimgray;
   border: black solid 2px;
 }
 
+/* Search Button */
 .searchButt {
   max-height: 36px !important;
   border: black solid 2px !important;
   margin-left: 0px !important;
 }
 
+/* UV Color Changes */
 .uvXTreme {
   color: violet !important;
 }

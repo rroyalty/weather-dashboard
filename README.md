@@ -1,8 +1,8 @@
-# Daily-Scheduler
+# Weather Dashboard
 
 ## Description 
 
-The following is the README for the project daily-scheduler, which is the repository created for the fifth homework assignment of the UNH Bootcamp course. For the assignment, I was tasked with creating an hourly schedule which stores entries for later use.
+The following is the README for the project weather-dashboard, which is the repository created for the sixth homework assignment of the UNH Bootcamp course. For the assignment, I was tasked with creating a dashboard that made API requests to an open weather API in order to present the user with current weather conditions of whichever city that they searched and also a five day forecast of that city.
 
 ![Example given:](https://github.com/rroyalty/daily-scheduler/blob/main/Example/05-third-party-apis-homework-demo.gif)  
 
