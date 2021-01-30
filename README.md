@@ -44,13 +44,13 @@ Below are the links associated with this project.
 
 ![ScottByers] https://github.com/switch120  
 ![MikeFearnley] https://michaelfearnley.com/  
-![StackOverflow] https://stackoverflow.com/
-![w3schools] https://www.w3schools.com/
-![Bootstrap5.0] https://getbootstrap.com/docs/5.0/getting-started/introduction/
-![JQuery] https://jquery.com/
-![Luxon] https://moment.github.io/luxon/
-![OpenWeatherMap] https://openweathermap.org/api
-![OpenCageData] https://opencagedata.com/api
+![StackOverflow] https://stackoverflow.com/  
+![w3schools] https://www.w3schools.com/  
+![Bootstrap5.0] https://getbootstrap.com/docs/5.0/getting-started/introduction/  
+![JQuery] https://jquery.com/  
+![Luxon] https://moment.github.io/luxon/  
+![OpenWeatherMap] https://openweathermap.org/api  
+![OpenCageData] https://opencagedata.com/api  
 
 ## Badges
 
