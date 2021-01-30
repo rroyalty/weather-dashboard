@@ -2,33 +2,36 @@
 
 ## Description 
 
-The following is the README for the project weather-dashboard, which is the repository created for the sixth homework assignment of the UNH Bootcamp course. For the assignment, I was tasked with creating a dashboard that made API requests to an open weather API in order to present the user with current weather conditions of whichever city that they searched and also a five day forecast of that city.
+The following is the README for the project weather-dashboard, which is the repository created for the sixth homework assignment of the UNH Bootcamp course. For the assignment, I was tasked with creating a dashboard that made API requests to an open weather API in order to present the user with current weather conditions of whichever city that they searched and also a five day forecast of that city. Previous city searches are to be saved in local storage for future use, if desired.
 
-![Example given:](https://github.com/rroyalty/daily-scheduler/blob/main/Example/05-third-party-apis-homework-demo.gif)  
+![Example given:](https://github.com/rroyalty/weather-dashboard/blob/main/assets/06-server-side-apis-homework-demo.png)  
 
-I had a hard time with this homework. I got to what I thought was a good finished project, and then a classmate pointed out to me that it's supposed to be a 'workday' scheduler. I spent hours trying to get the program to only display hours between 9 to 5. If I'd been paying attention this would have been easier to build in from the get go, but I couldn't seem to get it to work without breaking the code. I might try to fix it again later on, but I've already spent half a work day trying to fix it and I've got other things I need to do.
+This homework wasn't so bad, I don't seem to be having very much trouble with understanding API calls. I actually spent more time on the CSS and HTML, I think, than I did the javascript for this one.
+
+One notable change I did as compared to the instructions:
+
+Instructions said:
+WHEN I open the weather dashboard
+THEN I am presented with the last searched city forecast
+
+My homework does:
+WHEN I open the weather dashboard
+THEN I am presented with the local forecast
+WHEN The local forecast fails to display
+THEN I am presented with the last searched city forecast
+WHEN The local forecast fails to display AND there are no previous searches
+THEN I am presented with the weather for Washington D.C.
 
 ## Installation
 
 The project is a website; no installation necessary.
 
-## Controls
-
-Up/Down/Mousewheel - Scroll one entry at a time.
-PgUp/PgDn - Scroll an entire page entries.
-Home - Return to current time.
-
-Click on Row - Open entry to modification and reveal commit button. Navigation controls disabled while editing an entry.
-Click on 'Save Entry' - Commit the entry to storage and enable navigation.
-
-Only 'Future' entries are modifiable.
-
 ## Usage 
 
 Below are the links associated with this project.  
 
-![Website]https://rroyalty.github.io/daily-scheduler/  
-![Repository]https://github.com/rroyalty/daily-scheduler/  
+![Website]https://rroyalty.github.io/weather-dashboard/  
+![Repository]https://github.com/rroyalty/weather-dashboard  
 
 ## Screenshots of Project
 
