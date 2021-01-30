@@ -12,17 +12,17 @@ This homework wasn't so bad, I don't seem to be having very much trouble with un
 
 A couple notable changes I did as compared to the instructions:
 
-Instructions said:
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
+Instructions said:  
+WHEN I open the weather dashboard  
+THEN I am presented with the last searched city forecast  
 
-My homework does:
-WHEN I open the weather dashboard
-THEN I am presented with the local forecast
-WHEN The local forecast fails to display
-THEN I am presented with the last searched city forecast
-WHEN The local forecast fails to display AND there are no previous searches
-THEN I am presented with the weather for Washington D.C.
+My homework does:  
+WHEN I open the weather dashboard  
+THEN I am presented with the local forecast  
+WHEN The local forecast fails to display  
+THEN I am presented with the last searched city forecast  
+WHEN The local forecast fails to display AND there are no previous searches  
+THEN I am presented with the weather for Washington D.C.  
 
 
 In both the current weather and 5 day forecast I also included an "Outlook" row, since the API that I am getting from had a variety of different 'cloudy', 'rainy', etc, conditions.
