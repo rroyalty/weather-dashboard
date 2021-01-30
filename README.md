@@ -38,7 +38,7 @@ Below are the links associated with this project.
 ![Website] https://rroyalty.github.io/weather-dashboard/  
 ![Repository] https://github.com/rroyalty/weather-dashboard  
 
-## Screenshots of Project
+## Screenshot of Project
 
 ![Dashboard:](https://github.com/rroyalty/weather-dashboard/blob/main/assets/images/examples/weather-screenshot.jpg)
 
