@@ -4,7 +4,7 @@
 
 The following is the README for the project weather-dashboard, which is the repository created for the sixth homework assignment of the UNH Bootcamp course. For the assignment, I was tasked with creating a dashboard that made API requests to an open weather API in order to present the user with current weather conditions of whichever city that they searched and also a five day forecast of that city. Previous city searches are to be saved in local storage for future use, if desired.
 
-![Example given:](https://github.com/rroyalty/weather-dashboard/blob/main/assets/06-server-side-apis-homework-demo.png)  
+![Example given:](https://github.com/rroyalty/weather-dashboard/blob/main/assets/images/examples/06-server-side-apis-homework-demo.png)  
 
 This homework wasn't so bad, I don't seem to be having very much trouble with understanding API calls. I actually spent more time on the CSS and HTML, I think, than I did the javascript for this one.
 
@@ -38,7 +38,7 @@ Below are the links associated with this project.
 
 ## Screenshots of Project
 
-![Dashboard:](https://github.com/rroyalty/weather-dashboard/blob/main/assets/weather-screenshot.jpg)
+![Dashboard:](https://github.com/rroyalty/weather-dashboard/blob/main/assets/images/examples/weather-screenshot.jpg)
 
 ## Credits and Resources
 
