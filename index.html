@@ -10,14 +10,22 @@
   </head>
 
   <body>
+    <!--Weather Header-->
     <header class="jumbotron">
       <h1 class="display-3">Weather Dashboard</h1>
       <p id="currentDay" class="lead">**Clock Loading**</p>
     </header>
 
+    <!--Contailer-->
     <div class="container p-0">
+
+      <!--All Encompassing Row-->
       <div class="row m-0">
+
+        <!--Big Left Column (City Search, Search History)-->
         <div class="col-sm-12 col-md-4 col-lg-3 p-0 m-0">
+
+          <!--City Search Card-->
           <div class="card">
             <h5 class="card-header fw-bold">City Search</h5>
             <div class="card-body">
@@ -30,6 +38,7 @@
             </div>
           </div>
 
+          <!--Search History Card-->
           <div class="card">
             <h5 class="card-header fw-bold">Search History</h5>
             <div class="card-body">
@@ -46,11 +55,16 @@
             </div>
           </div>
 
+        <!--End Big Left Column-->       
+        </div>
 
-       </div>       
-
+        <!--Big Right Column-->
         <div class="col-sm-12 col-md-8 col-lg-9 m-0 p-0">
+
+          <!--Current Weather Card Row-->
           <div class="row m-0 todayCard">
+
+            <!--Current Weather Card-->
             <div class="card m-0">
               <h5 class="card-header"><span id="currentCity" class = "fw-bold">*loading*</span><img id="workingImage" src="" alt=""></h5>
               <div id="todayWeatherC" class="card-body fontVisibility">
@@ -61,69 +75,98 @@
                 <p id="workingUV" class="card-text">*UV Index Loading*</p>
               </div>
             </div>
+
+          <!--End Current Weather Card Row-->
           </div>
 
+          <!--5 Day Forecast Card Row-->
           <div class="card row m-0">
-              <h5 class="card-header fw-bold">5 Day Forecast</h5>
 
-              <div class="card-body p-0">
-                <div class="row d-flex justify-content-center m-0">
-                  <div class="col-sm-12 col-md-4 col-lg m-0 daily">
-                    <div class="card m-0 p-0">
-                      <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
-                      <div class="card-body weatherC fontVisibility">
-                        <p class="dayOutlook"></p>
-                        <p class="dayTemp card-text"></p>
-                        <p class="dayHumid card-text"></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-4 col-lg m-0 daily">
-                    <div class="card m-0 p-0">
-                      <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
-                      <div class="card-body weatherC fontVisibility">
-                        <p class="dayOutlook"></p>
-                        <p class="dayTemp card-text"></p>
-                        <p class="dayHumid card-text"></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-4 col-lg m-0 daily">
-                    <div class="card m-0 p-0">
-                      <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
-                      <div class="card-body weatherC fontVisibility">
-                        <p class="dayOutlook"></p>
-                        <p class="dayTemp card-text"></p>
-                        <p class="dayHumid card-text"></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-4 col-lg m-0 daily">
-                    <div class="card m-0 p-0">
-                      <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
-                      <div class="card-body weatherC fontVisibility">
-                        <p class="dayOutlook"></p>
-                        <p class="dayTemp card-text"></p>
-                        <p class="dayHumid card-text"></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-4 col-lg m-0 daily">
-                    <div class="card m-0 p-0">
-                      <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
-                      <div class="card-body weatherC fontVisibility">
-                        <p class="dayOutlook"></p>
-                        <p class="dayTemp card-text"></p>
-                        <p class="dayHumid card-text"></p>
-                      </div>
+          <!--5 Day Forecast Card Header-->
+            <h5 class="card-header fw-bold">5 Day Forecast</h5>
+
+            <!--5 Day Forecast Card Body-->
+            <div class="card-body p-0">
+
+              <!--5 Day Forecast Card Body Row-->
+              <div class="row d-flex justify-content-center m-0">
+
+                <!--Day 1-->
+                <div class="col-sm-12 col-md-4 col-lg m-0 daily">
+                  <div class="card m-0 p-0">
+                    <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
+                    <div class="card-body weatherC fontVisibility">
+                      <p class="dayOutlook"></p>
+                      <p class="dayTemp card-text"></p>
+                      <p class="dayHumid card-text"></p>
                     </div>
                   </div>
                 </div>
+
+                <!--Day 2-->
+                <div class="col-sm-12 col-md-4 col-lg m-0 daily">
+                  <div class="card m-0 p-0">
+                    <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
+                    <div class="card-body weatherC fontVisibility">
+                      <p class="dayOutlook"></p>
+                      <p class="dayTemp card-text"></p>
+                      <p class="dayHumid card-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Day 3-->
+                <div class="col-sm-12 col-md-4 col-lg m-0 daily">
+                  <div class="card m-0 p-0">
+                    <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
+                    <div class="card-body weatherC fontVisibility">
+                      <p class="dayOutlook"></p>
+                      <p class="dayTemp card-text"></p>
+                      <p class="dayHumid card-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Day 4-->
+                <div class="col-sm-12 col-md-4 col-lg m-0 daily">
+                  <div class="card m-0 p-0">
+                    <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
+                    <div class="card-body weatherC fontVisibility">
+                      <p class="dayOutlook"></p>
+                      <p class="dayTemp card-text"></p>
+                      <p class="dayHumid card-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Day 5-->
+                <div class="col-sm-12 col-md-4 col-lg m-0 daily">
+                  <div class="card m-0 p-0">
+                    <p class="card-header"><span class="dayDate">*loading*</span><img class="dayImage" src="" alt=""></p>
+                    <div class="card-body weatherC fontVisibility">
+                      <p class="dayOutlook"></p>
+                      <p class="dayTemp card-text"></p>
+                      <p class="dayHumid card-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+              <!--End 5 Day Forecast Card Body Row-->
               </div>
+
+            <!--End 5 Day Forecast Card Body-->
+            </div>
+
+          <!--End 5 Day Forecast Card Row-->
           </div>
+
+        <!--End Big Right Column-->
         </div>
 
+      <!--End All Encompassing Row-->
       </div>
+
+    <!--End Container-->
     </div>
   </body>
 
