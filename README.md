@@ -8,7 +8,7 @@ The following is the README for the project weather-dashboard, which is the repo
 
 This homework wasn't so bad, I don't seem to be having very much trouble with understanding API calls. I actually spent more time on the CSS and HTML, I think, than I did the javascript for this one.
 
-One notable change I did as compared to the instructions:
+A couple notable changes I did as compared to the instructions:
 
 Instructions said:
 WHEN I open the weather dashboard
@@ -22,6 +22,9 @@ THEN I am presented with the last searched city forecast
 WHEN The local forecast fails to display AND there are no previous searches
 THEN I am presented with the weather for Washington D.C.
 
+
+In both the current weather and 5 day forecast I also included an "Outlook" row, since the API that I am getting from had a variety of different 'cloudy', 'rainy', etc, conditions.
+
 ## Installation
 
 The project is a website; no installation necessary.
@@ -30,23 +33,24 @@ The project is a website; no installation necessary.
 
 Below are the links associated with this project.  
 
-![Website]https://rroyalty.github.io/weather-dashboard/  
-![Repository]https://github.com/rroyalty/weather-dashboard  
+![Website] https://rroyalty.github.io/weather-dashboard/  
+![Repository] https://github.com/rroyalty/weather-dashboard  
 
 ## Screenshots of Project
 
-![On Open:](https://github.com/rroyalty/daily-scheduler/blob/main/Example/workSchedulerLocked.bmp)
-![Example Entries:](https://github.com/rroyalty/daily-scheduler/blob/main/Example/workSchedulerWithEntries.bmp)  
+![Dashboard:](https://github.com/rroyalty/weather-dashboard/blob/main/assets/weather-screenshot.jpg)
 
-## Credits
+## Credits and Resources
 
-Bootcamp Teacher: ![ScottByers]https://github.com/switch120  
-Bootcamp TA: ![Mike]https://michaelfearnley.com/  
-StackOverflow.com
-w3schools.com
-bootstrap
-JQuery
-Luxon
+![ScottByers] https://github.com/switch120  
+![MikeFearnley] https://michaelfearnley.com/  
+![StackOverflow] https://stackoverflow.com/
+![w3schools] https://www.w3schools.com/
+![Bootstrap5.0] https://getbootstrap.com/docs/5.0/getting-started/introduction/
+![JQuery] https://jquery.com/
+![Luxon] https://moment.github.io/luxon/
+![OpenWeatherMap] https://openweathermap.org/api
+![OpenCageData] https://opencagedata.com/api
 
 ## Badges
 

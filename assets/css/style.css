@@ -21,7 +21,7 @@ textarea{
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
-  background-image: url(./assets/headerBackground.jpg);
+  background-image: url(../images/backgrounds/headerBackground.jpg);
   background-size: cover;
 }
 
@@ -47,43 +47,43 @@ textarea{
 /* Background Rain Image */
 .rainImg {
   background-color: transparent;
-  background-image: url(./assets/rain.jpg);
+  background-image: url(../images/backgrounds/rain.jpg);
 }
 
 /* Background Clear Skies Image */
 .sunImg {
   background-color: transparent !important;
-  background-image: url(./assets/sun.jpg) !important;
+  background-image: url(../images/backgrounds/sun.jpg) !important;
 }
 
 /* Background Snow Image */
 .snowImg {
   background-color: transparent;
-  background-image: url(./assets/snowing.jpg);
+  background-image: url(../images/backgrounds/snowing.jpg);
 }
 
 /* Background Cloudy Image */
 .cloudImg {
   background-color: transparent;
-  background-image: url(./assets/clouds.jpg);
+  background-image: url(../images/backgrounds/clouds.jpg);
 }
 
 /* Background Windy Image*/
 .windImg {
   background-color: transparent !important;
-  background-image: url(./assets/wind.jpg);
+  background-image: url(../images/backgrounds/wind.jpg);
 }
 
 /* Background Thunderstorm Image */
 .thunderImg {
   background-color: transparent !important;
-  background-image: url(./assets/thunderstorm.jpeg);
+  background-image: url(../images/backgrounds/thunderstorm.jpeg);
 }
 
 /* Background *Other Conditions Image */
 .fogImg {
   background-color: transparent !important;
-  background-image: url(./assets/fog.jpg);
+  background-image: url(../images/backgrounds/fog.jpg);
 }
 
 /* Font formatting */
